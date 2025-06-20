@@ -1,0 +1,9 @@
+# nginx image
+FROM nginx 
+# wie cd /usr/share/nginx
+WORKDIR /usr/share/nginx
+# copiert inhalt von ./html zu /usr/share/nginx/html auf den nginx image,
+# dies wird dann von nginx serviert
+COPY html ./html 
+# exposed den port 80 auf dem nginx container
+EXPOSE 	80	
