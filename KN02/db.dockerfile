@@ -1,0 +1,5 @@
+FROM mariadb:latest
+
+ENV MARIADB_ROOT_PASSWORD="1234"
+
+EXPOSE 3306
