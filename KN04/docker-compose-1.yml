@@ -1,6 +1,8 @@
 services:
   m347-kn04a-web:
-    image: mogls/m347:kn02b-web
+    build: 
+      context: .
+      dockerfile: php.dockerfile
     ports:
       - "8080:80"
     volumes:
@@ -11,9 +13,11 @@ services:
       - kn04a_net
 
   m347-kn04a-db:
-    image: mogls/m347:mariadb
+    image: mariadb:latest
     ports:
       - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword
     volumes:
       - db_data:/var/lib/mysql
     networks:
