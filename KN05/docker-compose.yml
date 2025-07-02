@@ -1,0 +1,23 @@
+services:
+  kn05c_shared_1:
+    image: nginx:latest
+    container_name: kn05c_shared_1
+    ports: 
+      - "8085:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+      - shared_volume_c:/home/shared
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs: 
+          size: 64m
+  kn05_shared_2:
+    image: nginx:latest
+    container_name: kn05c_shared_2
+    ports: 
+      - "8086:80"
+    volumes:
+      - shared_volume_c:/home/shared
+  
+volumes:
+  shared_volume_c:
